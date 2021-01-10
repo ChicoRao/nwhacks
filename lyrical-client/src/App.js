@@ -10,15 +10,18 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <h1 id="Logo1">Lyrical Miracle</h1>
         <Tabs defaultActiveKey="Search" id="PageTabs">
+        
           <Tab eventKey="Search" title="Search">
             <SearchPage/>
           </Tab>
           <Tab eventKey="Play" title="Play">
             <PlayPage/>
           </Tab>
+
         </Tabs>
-        <Queue/>
+        {/* <Queue/> */}
       </header>
     </div>
   );
