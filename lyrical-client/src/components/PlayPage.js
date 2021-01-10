@@ -20,7 +20,9 @@ class PlayPage extends React.Component{
     this.prevTrack = this.prevTrack.bind(this);
     this.state = {
       trackName:"Track Name",
+      displayTrackName: "",
       artistName:"Artist Name",
+      displayArtistName: "",
       imageURL:"https://i.pinimg.com/originals/b4/75/00/b4750046d94fed05d00dd849aa5f0ab7.jpg",
       songLyrics: "",
       isPlay: false,
@@ -35,7 +37,7 @@ class PlayPage extends React.Component{
 
   handleLoadSuccess() {
     console.log("loaded");
-    const token = 'BQBNrSf6BR-PBS-TsE4wU0Q8q2xa_eWt7qGQp9Tb3FRWCSlqp7cFeYL9GmnJYsmNsQt3s2uUdnoUO-6dq-NDaE3ARJeH6idJVtwWguQHZUhzrmzvVhVncbxpW12KJ6_jo_B9aKoUiip8RTWgK3LN6FwrDu7A5KE';
+    const token = 'BQDiVTxucHTApRB2MkcSXItD-8HBrPhVh43XKxdxGJMISc6l_G20o81PHznhxsIXAl8Brjn8edJKZne3OiQpgdB4G2ZSjODmYrQgICSQlXiTm1fXe-2YRaH5atuE6JST7cKGSuJ_mK9YKnMHSheCjmhSmNJh5mo';
     const player = new window.Spotify.Player({
       name: 'Web Playback SDK Quick Start Player',
       getOAuthToken: cb => { cb(token); }
@@ -78,7 +80,9 @@ class PlayPage extends React.Component{
           const a_close_regex = /<\/a>/g;
           lyrics = lyrics.replaceAll(a_open_regex, '').replaceAll(a_close_regex, '')
           this.setState({trackName: track_name});
+          this.setState({displayTrackName: track_name});
           this.setState({artistName: cur_artist_name});
+          this.setState({displayArtistName: cur_artist_name});
           this.setState({imageURL: imgURL});
           console.log(lyrics);
           this.setState({songLyrics: lyrics});
@@ -168,7 +172,9 @@ class PlayPage extends React.Component{
               url="https://sdk.scdn.co/spotify-player.js"
             />
           </div>
-          <LyricBox lyrics={this.state.songLyrics} title={this.state.trackName}/>
+          <div className="LyricBox">
+            <LyricBox lyrics={this.state.songLyrics} title={this.state.displayTrackName} artist={this.state.displayArtistName}/>
+          </div>
         </div>
       )   
   }

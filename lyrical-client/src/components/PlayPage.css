@@ -1,3 +1,8 @@
+.PlayPage{
+  align-items: center;
+  justify-content: center;
+}
+
 .PlayingSong{
   display: inline-flex;
   background: #B7A790;
@@ -24,4 +29,12 @@
 
 .LanguageSelectPlayer{
   color: white;
+}
+
+.LyricBox{
+  color: white;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+  display:flex;
 }

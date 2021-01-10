@@ -1,0 +1,16 @@
+#displayLyricTitle{
+  padding:10px;
+  padding-bottom:0px;
+  color:white;
+}
+#displayArtistTitle{
+  padding:10px;
+  padding-top: 0px;
+  font-size: 18px;
+  color:white;
+}
+#displayLyrics{
+  padding:10px;
+  font-size: 20px;
+  color:#F5F5DC;
+}
